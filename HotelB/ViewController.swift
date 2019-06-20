@@ -9,12 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var createAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+              createAccountButton.layer.cornerRadius = createAccountButton.frame.size.height/2
     }
-
+    @IBAction func createAccountButton(_ sender: UIButton) {
+ 
+        
+    }
+    
+    
 
 }
 
