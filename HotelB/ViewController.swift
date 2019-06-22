@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ViewController: UIViewController {
     @IBOutlet weak var createAccountButton: UIButton!
@@ -14,14 +15,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-              createAccountButton.layer.cornerRadius = createAccountButton.frame.size.height/2
+        createAccountButton.layer.cornerRadius = createAccountButton.frame.size.height/2
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show(withStatus: "অপেক্ষা করুন")
+        
     }
     @IBAction func createAccountButton(_ sender: UIButton) {
- 
+        
         
     }
     
     
-
+    
 }
 
