@@ -11,25 +11,38 @@ import UIKit
 class createAccountViewController: UIViewController {
 
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var dateOfBirthTextField: UITextField!
+    
+    private var dateInput : UIDatePicker?
     
     
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         registerButton.layer.cornerRadius = registerButton.frame.height/2
+        
+        //dateView
+        dateInput = UIDatePicker()
+        dateInput?.datePickerMode = .date
+        dateOfBirthTextField.inputView = dateInput
+        
+        dateInput?.addTarget(self, action: #selector(createAccountViewController.dateC(dateInput:)), for: .valueChanged)
+        
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(createAccountViewController.viewTap(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGes)
 
-
+    }
+    @objc func viewTap(gestureRecognizer: UIGestureRecognizer){
+        view.endEditing(true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func dateC(dateInput: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateOfBirthTextField.text = dateFormatter.string(from: dateInput.date)
+        view.endEditing(true)
     }
-    */
+    
 
 }

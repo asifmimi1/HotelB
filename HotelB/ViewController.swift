@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         createAccountButton.layer.cornerRadius = createAccountButton.frame.size.height/2
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.show(withStatus: "অপেক্ষা করুন")
+        //SVProgressHUD.setDefaultMaskType(.black)
+       // SVProgressHUD.show(withStatus: "অপেক্ষা করুন")
         
     }
     @IBAction func createAccountButton(_ sender: UIButton) {
